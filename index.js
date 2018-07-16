@@ -1,4 +1,5 @@
 import cheerio from 'cheerio';
+import {name as MODULE_NAME} from './package.json';
 import path from 'path';
 import PluginError from 'plugin-error';
 import thru from 'through2';
@@ -7,13 +8,13 @@ const svgMeta = (outputPath) => {
   let meta = {};
   let latestFile;
   let latestMod;
+
   const extract = (file, enc, cb) => {
     if(file.isNull()) {
-      cb();
+      return cb();
     }
     if(file.isStream()) {
-      this.emit('error', new PluginError('svg-meta', 'Streams are not supported.'));
-      cb();
+      return cb(new PluginError(MODULE_NAME, 'Streams are not supported.'));
     }
     const filePath = path.relative(file.base, file.path);
     const id = filePath.replace(/\//g, '-').replace(/\.svg$/, '');
@@ -38,7 +39,10 @@ const svgMeta = (outputPath) => {
     }
     const metaFile = new Vinyl();
     metaFile.contents = Buffer.from(JSON.stringify(meta));
-    metaFile.path = outputPath;
+    if(typeof outputPath !== 'string') {
+      cb(new PluginError(MODULE_NAME, 'Assign a path for the product of this module including the file name.'));
+    }
+    metaFile.path = outputPath.replace(/(.json)?$/, '.json');
     cb(null, metaFile);
   };
   return thru.obj(extract, bundle);
