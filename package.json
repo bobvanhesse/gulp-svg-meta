@@ -1,0 +1,27 @@
+{
+  "name": "gulp-svg-meta",
+  "version": "1.0.0",
+  "description": "A gulp plugin that will provide you with a json containing svg meta-data",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "test": "eslint index.js"
+  },
+  "author": "Bob van Hesse <bob@vanhesse.nl>",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "1.0.0-rc.2",
+    "plugin-error": "1.0.1",
+    "through2": "2.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.3",
+    "babel-preset-env": "1.7.0",
+    "eslint": "5.1.0",
+    "eslint-config-google": "0.9.1",
+    "gulp": "4.0.0",
+    "gulp-pug": "4.0.1",
+    "gulp-svgstore": "6.1.1"
+  }
+}
