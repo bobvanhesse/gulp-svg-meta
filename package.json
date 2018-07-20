@@ -8,6 +8,8 @@
     "test": "eslint index.js"
   },
   "author": "Bob van Hesse <bob@vanhesse.nl>",
+  "repository": "github:bobvanhesse/gulp-svg-meta",
+  "bugs": "https://github.com/bobvanhesse/gulp-svg-meta/issues",
   "license": "MIT",
   "dependencies": {
     "cheerio": "1.0.0-rc.2",
@@ -22,6 +24,6 @@
     "eslint-config-google": "0.9.1",
     "gulp": "4.0.0",
     "gulp-pug": "4.0.1",
-    "gulp-svgstore": "6.1.1"
+    "gulp-svgstore": "git+https://github.com/bobvanhesse/gulp-svgstore.git#6.1.1.1"
   }
 }

@@ -1,0 +1,12 @@
+mixin svg(id, screenReaders = false, role = 'img')
+  if id in svgMeta
+    - const meta = svgMeta[id], titleId = 'title' in meta && screenReaders ? 'title-'+id : false, descId = 'desc' in meta && screenReaders ? 'desc-'+id : false;
+    svg(viewBox=meta.viewBox, aria-labelledby=titleId, aria-describedby=descId, role=(screenReaders ? role : 'presentation'), aria-hidden=(screenReaders ? 'true': false))&attributes(attributes)
+      if screenReaders
+        if 'title' in meta
+          title(id=titleId)= meta.title
+        if 'desc' in meta
+          desc(id=descId)= meta.desc
+      use(xlink:href=`/sprite.svg#${id}`)
+  else
+    - console.error(`No svg found with id '${id}'.`)
