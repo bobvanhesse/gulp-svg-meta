@@ -4,11 +4,10 @@ import path from 'path';
 import PluginError from 'plugin-error';
 import thru from 'through2';
 import Vinyl from 'vinyl';
-const svgMeta = (outputPath) => {
+const gulpSvgMeta = (outputPath) => {
   let meta = {};
   let latestFile;
   let latestMod;
-
   const extract = (file, enc, cb) => {
     if(file.isNull()) {
       return cb();
@@ -47,4 +46,4 @@ const svgMeta = (outputPath) => {
   };
   return thru.obj(extract, bundle);
 };
-export default svgMeta;
+export default gulpSvgMeta;

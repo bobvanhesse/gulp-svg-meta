@@ -2,7 +2,7 @@ import fs from 'fs';
 import gulp from 'gulp';
 import gulpPug from 'gulp-pug';
 import path from 'path';
-import svgMeta from '.';
+import gulpSvgMeta from '.';
 import svgStore from 'gulp-svgstore';
 
 const reload = (relativePath) => {
@@ -19,7 +19,7 @@ const pugData = () => ({
 
 gulp.task('svg', () => gulp
   .src('./src/sprite/**/*.svg')
-  .pipe(svgMeta('../.temp/svg-meta.json'))
+  .pipe(gulpSvgMeta('../.temp/svg-meta.json'))
   .pipe(svgStore({
     fileName: 'sprite'
   }))
