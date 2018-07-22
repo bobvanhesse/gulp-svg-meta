@@ -1,6 +1,6 @@
 {
   "name": "gulp-svg-meta",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A gulp plugin that will provide you with a json containing svg meta-data",
   "main": "index.js",
   "scripts": {

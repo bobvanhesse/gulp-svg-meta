@@ -1,14 +1,13 @@
-import cheerio from 'cheerio';
-import {name as MODULE_NAME} from './package.json';
-import path from 'path';
-import PluginError from 'plugin-error';
-import thru from 'through2';
-import Vinyl from 'vinyl';
-const svgMeta = (outputPath) => {
+const cheerio = require('cheerio');
+const MODULE_NAME = require('./package.json').name;
+const path = require('path');
+const PluginError = require('plugin-error');
+const thru = require('through2');
+const Vinyl = require('vinyl');
+const gulpSvgMeta = (outputPath) => {
   let meta = {};
   let latestFile;
   let latestMod;
-
   const extract = (file, enc, cb) => {
     if(file.isNull()) {
       return cb();
@@ -47,4 +46,4 @@ const svgMeta = (outputPath) => {
   };
   return thru.obj(extract, bundle);
 };
-export default svgMeta;
+module.exports = gulpSvgMeta;
