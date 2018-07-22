@@ -46,4 +46,4 @@ const gulpSvgMeta = (outputPath) => {
   };
   return thru.obj(extract, bundle);
 };
-export default gulpSvgMeta;
+module.exports = gulpSvgMeta;
